@@ -4,18 +4,33 @@ using CodigoDelSurApp.Persistence.Repositories.Interface;
 
 namespace CodigoDelSurApp.Application
 {
-    public class UserService : IUserService
+    public class PokemonService : IPokemonService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IPokemonRepository _userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public PokemonService(IPokemonRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
-        public Task<User> GetLoggedUserAsync(string username, string password)
+        public Task<List<Pokemon>> GetAllPokemon()
         {
-            return _userRepository.GetUserByUserNameAndPasswordAsync(username, password);
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Pokemon>> GetAllPokemonByType(string type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Pokemon> GetPokemonByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Pokemon> GetPokemonByNumber(int number)
+        {
+            throw new NotImplementedException();
         }
     }
 }

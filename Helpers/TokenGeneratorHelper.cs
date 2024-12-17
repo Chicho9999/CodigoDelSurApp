@@ -3,6 +3,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
+namespace Helpers;
+
 public static class TokenGeneratorHelper
 {
     public static string GenerateJwtToken(Claim[] claims)
