@@ -14,9 +14,9 @@ namespace CodigoDelSurApp.Controllers
         }
 
         [HttpPost(Name = "Register")]
-        public Task<ActionResult> Get()
+        public ActionResult Register()
         {
-
+            return Ok();
         }
     }
 }

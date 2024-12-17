@@ -1,4 +1,5 @@
-﻿using CodigoDelSurApp.Models;
+﻿using CodigoDelSurApp.Application.Interfaces;
+using CodigoDelSurApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -8,20 +9,25 @@ namespace CodigoDelSurApp.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        private readonly IUserService _userService;
+
+        public LoginController(IUserService userService)
+        {
+            _userService = userService;
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            // Validate user credentials (replace with your actual logic)
-            if (ValidateUser(model.Username, model.Password))
+            var loggedUSer = await _userService.GetLoggedUserAsync(model.Username, model.Password);
+            if (loggedUSer != null)
             {
                 var claims = new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, model.Username),
-                    // Add other claims as needed (e.g., roles, permissions)
                 };
 
-                var token = GenerateJwtToken(claims);
+                var token = TokenGeneratorHelper.GenerateJwtToken(claims);
 
                 return Ok(new { token });
             }
