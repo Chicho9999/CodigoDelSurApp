@@ -1,0 +1,6 @@
+@CodigoDelSurApp_HostAddress = http://localhost:5002
+
+GET {{CodigoDelSurApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
