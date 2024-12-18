@@ -5,6 +5,10 @@ namespace CodigoDelSurApp.Persistence
 {
     public class CodigoDelSurDbContext : DbContext
     {
+        public CodigoDelSurDbContext()
+        {
+        }
+
         public CodigoDelSurDbContext(DbContextOptions<CodigoDelSurDbContext> options) : base(options)
         {
         }
@@ -21,10 +25,10 @@ namespace CodigoDelSurApp.Persistence
                 new User
                 {
                     Id = userId,
-                    FirstName = "System",
+                    FirstName = "Admin",
                     LastName = "",
-                    Username = "System",
-                    Password = "System",
+                    Username = "Admin",
+                    Password = "Admin",
                 }
             );
         }

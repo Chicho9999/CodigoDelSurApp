@@ -7,11 +7,19 @@ namespace CodigoDelSurApp.Controllers
     [ApiController]
     public class PokemonController : ControllerBase
     {
-        private readonly IPokemonService pokemonService;
+        private readonly IPokemonService _pokemonService;
 
         public PokemonController(IPokemonService pokemonService)
         {
-            this.pokemonService = pokemonService;
+             _pokemonService = pokemonService;
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult> GetAllPokemon()
+        {
+            var pokemons = await _pokemonService.GetAllPokemon();
+            return Ok();
         }
     }
 }

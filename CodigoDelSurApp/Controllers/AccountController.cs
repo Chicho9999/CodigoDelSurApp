@@ -17,12 +17,21 @@ namespace CodigoDelSurApp.Controllers
             _userService = userService;
         }
 
+        /// <summary>
+        /// Register User in the System
+        /// </summary>
+        /// <returns></returns>
         [HttpPost(Name = "Register")]
         public ActionResult Register()
         {
             return Ok();
         }
 
+        /// <summary>
+        /// Login User
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
