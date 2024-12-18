@@ -1,4 +1,4 @@
-﻿using CodigoDelSurApp.Persistence.Entities;
+﻿using CodigoDelSurApp.Domain.Entities;
 
 namespace CodigoDelSurApp.Persistence.Repositories.Interface
 {
@@ -6,6 +6,6 @@ namespace CodigoDelSurApp.Persistence.Repositories.Interface
     {
         Task<List<PotterBook>> GetAllPotterBooksAsync();
         Task<PotterCharacter?> GetPotterCharactersByNameAsync(string potterName);
-        Task<PotterCharacter?> GetPotterCharactersByHouseAsync(string house);
+        Task<List<PotterCharacter>?> GetPotterCharactersByHouseAsync(string house);
     }
 }

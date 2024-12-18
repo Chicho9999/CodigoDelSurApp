@@ -19,6 +19,8 @@ builder.Services.AddDbContext<CodigoDelSurDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddSingleton<TokenGeneratorHelper>();
+builder.Services.AddScoped<IBeerRepository, BeerRepository>();
+builder.Services.AddScoped<IBeerService, BeerService>();
 builder.Services.AddScoped<IPotterService, PotterService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPotterRepository, PotterRepository>();

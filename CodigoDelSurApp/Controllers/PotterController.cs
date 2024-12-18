@@ -34,7 +34,7 @@ namespace CodigoDelSurApp.Controllers
 
         [HttpGet]
         [Route("Character/House")]
-        public async Task<ActionResult> GetHarryCharacterByHouse(string house)
+        public async Task<ActionResult> GetHarryCharactersByHouse(string house)
         {
             var chars = await _potterService.GetPotterCharactersByHouseAsync(house);
             return Ok(new { Characters = chars });

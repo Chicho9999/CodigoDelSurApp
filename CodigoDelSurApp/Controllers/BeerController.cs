@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CodigoDelSurApp.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CodigoDelSurApp.Controllers
 {
@@ -16,11 +17,11 @@ namespace CodigoDelSurApp.Controllers
 
 
         [HttpGet]
-        [Route("Character/FullName")]
-        public async Task<ActionResult> GetHarryCharacterByName(string name)
+        [Route("Name")]
+        public async Task<ActionResult> GetBeersByName(string name)
         {
-            var chars = await _beerService.GetBeerCharacterByNameAsync(name);
-            return Ok(new { Characters = chars });
+            var chars = await _beerService.GetBeersNameAsync(name);
+            return Ok(new { Beers = chars });
         }
     }
 }

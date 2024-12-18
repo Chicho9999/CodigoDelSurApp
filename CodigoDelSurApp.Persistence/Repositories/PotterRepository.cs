@@ -1,4 +1,4 @@
-﻿using CodigoDelSurApp.Persistence.Entities;
+﻿using CodigoDelSurApp.Domain.Entities;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
 using Newtonsoft.Json;
 using RestSharp;
@@ -25,11 +25,11 @@ namespace CodigoDelSurApp.Persistence.Repositories
             return characters.FirstOrDefault(c => c.FullName.Contains(potterName, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public async Task<PotterCharacter?> GetPotterCharactersByHouseAsync(string house)
+        public async Task<List<PotterCharacter>?> GetPotterCharactersByHouseAsync(string house)
         {
             List<PotterCharacter> characters = await GetAllHarryPotterCharacters();
 
-            return characters.FirstOrDefault(c => c.HogwartsHouse.Contains(house, StringComparison.CurrentCultureIgnoreCase));
+            return characters.Where(c => c.HogwartsHouse.Contains(house, StringComparison.CurrentCultureIgnoreCase)).ToList();
         }
 
         private static async Task<List<PotterCharacter>> GetAllHarryPotterCharacters()

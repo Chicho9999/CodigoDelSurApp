@@ -1,4 +1,4 @@
-﻿namespace CodigoDelSurApp.Persistence.Entities
+﻿namespace CodigoDelSurApp.Domain.Entities
 {
     public class PotterBook 
     {

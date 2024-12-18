@@ -4,28 +4,23 @@ using CodigoDelSurApp.Persistence.Repositories.Interface;
 
 namespace CodigoDelSurApp.Application
 {
-    public class PotterService : IPotterService
+    public class UserService : IUserService
     {
-        private readonly IPotterRepository _potterRepository;
+        private readonly IUserRepository _userRepository;
 
-        public PotterService(IPotterRepository potterRepository)
+        public UserService(IUserRepository userRepository)
         {
-            _potterRepository = potterRepository;
+            _userRepository = userRepository;
         }
 
-        public async Task<List<PotterBook>> GetAllBooksAsync()
+        public Task<User> CreateUserAsync(User user)
         {
-            return await _potterRepository.GetAllPotterBooksAsync();
+            return _userRepository.CreateUserAsync(user);
         }
 
-        public async Task<PotterCharacter?> GetPotterCharacterByNameAsync(string name)
+        public Task<User?> GetLoggedUserAsync(string username, string password)
         {
-            return await _potterRepository.GetPotterCharactersByNameAsync(name);
-        }
-
-        public async Task<PotterCharacter?> GetPotterCharactersByHouseAsync(string name)
-        {
-            return await _potterRepository.GetPotterCharactersByHouseAsync(name);
+            return _userRepository.GetUserByUserNameAndPasswordAsync(username, password);
         }
     }
 }
