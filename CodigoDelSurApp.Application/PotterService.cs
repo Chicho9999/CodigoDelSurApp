@@ -13,7 +13,12 @@ namespace CodigoDelSurApp.Application
             _userRepository = userRepository;
         }
 
-        public Task<User> GetLoggedUserAsync(string username, string password)
+        public Task<User> CreateUserAsync(User user)
+        {
+            return _userRepository.CreateUserAsync(user);
+        }
+
+        public Task<User?> GetLoggedUserAsync(string username, string password)
         {
             return _userRepository.GetUserByUserNameAndPasswordAsync(username, password);
         }

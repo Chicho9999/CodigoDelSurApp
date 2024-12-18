@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodigoDelSurApp.Application\CodigoDelSurApp.Application.csproj" />
-    <ProjectReference Include="..\Helpers\Helpers.csproj" />
   </ItemGroup>
 
 </Project>

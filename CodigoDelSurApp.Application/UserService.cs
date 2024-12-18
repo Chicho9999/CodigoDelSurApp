@@ -4,33 +4,28 @@ using CodigoDelSurApp.Persistence.Repositories.Interface;
 
 namespace CodigoDelSurApp.Application
 {
-    public class PokemonService : IPokemonService
+    public class PotterService : IPotterService
     {
-        private readonly IPokemonRepository _userRepository;
+        private readonly IPotterRepository _potterRepository;
 
-        public PokemonService(IPokemonRepository userRepository)
+        public PotterService(IPotterRepository potterRepository)
         {
-            _userRepository = userRepository;
+            _potterRepository = potterRepository;
         }
 
-        public Task<List<Pokemon>> GetAllPokemon()
+        public async Task<List<PotterBook>> GetAllBooksAsync()
         {
-            throw new NotImplementedException();
+            return await _potterRepository.GetAllPotterBooksAsync();
         }
 
-        public Task<List<Pokemon>> GetAllPokemonByType(string type)
+        public async Task<PotterCharacter?> GetPotterCharacterByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            return await _potterRepository.GetPotterCharactersByNameAsync(name);
         }
 
-        public Task<Pokemon> GetPokemonByName(string name)
+        public async Task<PotterCharacter?> GetPotterCharactersByHouseAsync(string name)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Pokemon> GetPokemonByNumber(int number)
-        {
-            throw new NotImplementedException();
+            return await _potterRepository.GetPotterCharactersByHouseAsync(name);
         }
     }
 }

@@ -3,23 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodigoDelSurApp", "CodigoDelSurApp\CodigoDelSurApp.csproj", "{D54C113D-8D32-4CEF-86FA-ABDBAE319129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodigoDelSurApp", "CodigoDelSurApp\CodigoDelSurApp.csproj", "{D54C113D-8D32-4CEF-86FA-ABDBAE319129}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodigoDelSurApp.Domain", "CodigoDelSurApp.Entities\CodigoDelSurApp.Domain.csproj", "{90F80377-C170-44D4-A74F-A69ADD0CD664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodigoDelSurApp.Domain", "CodigoDelSurApp.Entities\CodigoDelSurApp.Domain.csproj", "{90F80377-C170-44D4-A74F-A69ADD0CD664}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{61DC5B3E-A9BA-4AEF-941D-6BC0311A7156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodigoDelSurApp.Application", "CodigoDelSurApp.Application\CodigoDelSurApp.Application.csproj", "{55AFB722-8FE7-43AB-A553-3A365CC8EF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodigoDelSurApp.Application", "CodigoDelSurApp.Application\CodigoDelSurApp.Application.csproj", "{55AFB722-8FE7-43AB-A553-3A365CC8EF5E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{246DEAEE-0160-44CB-AFC1-1832AC37AF02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodigoDelSurApp.Infrastructure", "CodigoDelSurApp.Infrastructure\CodigoDelSurApp.Infrastructure.csproj", "{A5B708F6-C197-4C78-B3AA-21528EB936BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodigoDelSurApp.Infrastructure", "CodigoDelSurApp.Infrastructure\CodigoDelSurApp.Infrastructure.csproj", "{A5B708F6-C197-4C78-B3AA-21528EB936BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodigoDelSurApp.Persistence", "CodigoDelSurApp.Persistence\CodigoDelSurApp.Persistence.csproj", "{632BA52A-A41A-443F-A25F-A277E489D2DB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{EEEA408B-85AB-4BE0-8A3B-6DE1DBFCDEA9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{2687E0DE-B716-4650-A196-8D43644C1F88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodigoDelSurApp.Persistence", "CodigoDelSurApp.Persistence\CodigoDelSurApp.Persistence.csproj", "{632BA52A-A41A-443F-A25F-A277E489D2DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +43,6 @@ Global
 		{632BA52A-A41A-443F-A25F-A277E489D2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632BA52A-A41A-443F-A25F-A277E489D2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632BA52A-A41A-443F-A25F-A277E489D2DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2687E0DE-B716-4650-A196-8D43644C1F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2687E0DE-B716-4650-A196-8D43644C1F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2687E0DE-B716-4650-A196-8D43644C1F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2687E0DE-B716-4650-A196-8D43644C1F88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,7 +52,6 @@ Global
 		{55AFB722-8FE7-43AB-A553-3A365CC8EF5E} = {61DC5B3E-A9BA-4AEF-941D-6BC0311A7156}
 		{A5B708F6-C197-4C78-B3AA-21528EB936BF} = {246DEAEE-0160-44CB-AFC1-1832AC37AF02}
 		{632BA52A-A41A-443F-A25F-A277E489D2DB} = {246DEAEE-0160-44CB-AFC1-1832AC37AF02}
-		{2687E0DE-B716-4650-A196-8D43644C1F88} = {EEEA408B-85AB-4BE0-8A3B-6DE1DBFCDEA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {823711DC-A8A4-4D48-AB3A-F7633B687CCB}

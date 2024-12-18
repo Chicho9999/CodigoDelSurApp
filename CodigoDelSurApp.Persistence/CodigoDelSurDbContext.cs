@@ -26,6 +26,7 @@ namespace CodigoDelSurApp.Persistence
                 {
                     Id = userId,
                     FirstName = "Admin",
+                    Email = "Adming@hotmail.com",
                     LastName = "",
                     Username = "Admin",
                     Password = "Admin",

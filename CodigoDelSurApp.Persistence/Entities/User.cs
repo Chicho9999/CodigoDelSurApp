@@ -7,6 +7,7 @@ namespace CodigoDelSurApp.Persistence.Entities
         public required string FirstName { get; set; }
         public string? LastName { get; set; }
         public required string Username { get; set; }
+        public required string Email { get; set; }
 
         [JsonIgnore]
         public string? Password { get; set; }

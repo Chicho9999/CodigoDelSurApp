@@ -1,56 +1,35 @@
 ﻿using CodigoDelSurApp.Persistence.Entities;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
-using Helpers;
-using Newtonsoft.Json;
-using RestSharp;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodigoDelSurApp.Persistence.Repositories
 {
-    public class PokemonRepository : IPokemonRepository
+    public class UserRepository : IUserRepository
     {
         private readonly CodigoDelSurDbContext _dbContext;
-        private const string pokemonApiUrl = "https://pokeapi.co/api/v2/";
 
-        public PokemonRepository(CodigoDelSurDbContext dbContext)
+        public UserRepository(CodigoDelSurDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<Pokemon> GetPokemonByIdAsync(int number)
+        public async Task<User?> GetUserByUserNameAndPasswordAsync(string username, string password)
         {
-            var client = new RestClient($"{pokemonApiUrl}/pokemon/{number}");
-            var response = await client.ExecuteAsync(new RestRequest());
-            var pokemon = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+            var passwordHasher = new PasswordHasher<User>();
+            var hashedPassword = passwordHasher.HashPassword(null, password);
 
-            return pokemon;
+            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Username == username && x.Password == hashedPassword);
         }
 
-        public async Task<Pokemon> GetPokemonByNameAsync(string pokemonName)
+        public async Task<User> CreateUserAsync(User user)
         {
-            var client = new RestClient($"{pokemonApiUrl}/pokemon/{pokemonName}");
-            var response = await client.ExecuteAsync(new RestRequest());
-            var pokemon = JsonConvert.DeserializeObject<Pokemon>(response.Content);
+            var passwordHasher = new PasswordHasher<User>();
+            user.Password = passwordHasher.HashPassword(user, user.Password);
 
-            return pokemon;
-        }
-
-        public async Task<List<Pokemon>> GetAllPokemonAsync()
-        {
-            var client = new RestClient($"{pokemonApiUrl}/pokemon?limit=100000&offset=0");
-            var response = await client.ExecuteAsync(new RestRequest());
-            var pokemon = JsonConvert.DeserializeObject<List<Pokemon>>(response.Content);
-
-            return pokemon;
-        }
-
-        public async Task<List<Pokemon>> GetAllPokemonByTypeAsync(string type)
-        {
-            var numberType = PokemonHelper.GetPokemonTypeByHisName(type);
-            var client = new RestClient($"{pokemonApiUrl}/type/{numberType}");
-            var response = await client.ExecuteAsync(new RestRequest());
-            var pokemon = JsonConvert.DeserializeObject<List<Pokemon>>(response.Content);
-
-            return pokemon;
+            _dbContext.Users.Add(user);
+            await _dbContext.SaveChangesAsync();
+            return user;
         }
     }
 }

@@ -4,7 +4,7 @@ namespace CodigoDelSurApp.Persistence.Repositories.Interface
 {
     public interface IUserRepository
     {
-        Task<User> GetUserByUserNameAndPasswordAsync(string userName, string password);
+        Task<User?> GetUserByUserNameAndPasswordAsync(string userName, string password);
 
         Task<User> CreateUserAsync(User user);
     }

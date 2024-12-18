@@ -1,8 +1,8 @@
 ﻿namespace Helpers;
 
-public static class PokemonHelper
+public static class PotterHelper
 {
-    public static string GetPokemonTypeByHisName(string type) {
+    public static string GetPotterTypeByHisName(string type) {
         switch (type) {
             case "normal":
                 return "1";
