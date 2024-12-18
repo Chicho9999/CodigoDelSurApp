@@ -1,5 +1,5 @@
 ﻿using CodigoDelSurApp.Application.Interfaces;
-using CodigoDelSurApp.Persistence.Entities;
+using CodigoDelSurApp.Domain.Entities;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
 
 namespace CodigoDelSurApp.Application

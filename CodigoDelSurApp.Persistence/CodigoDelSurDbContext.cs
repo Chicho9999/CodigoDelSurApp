@@ -1,4 +1,4 @@
-﻿using CodigoDelSurApp.Persistence.Entities;
+﻿using CodigoDelSurApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodigoDelSurApp.Persistence
@@ -29,7 +29,7 @@ namespace CodigoDelSurApp.Persistence
                     Email = "Adming@hotmail.com",
                     LastName = "",
                     Username = "Admin",
-                    Password = "Admin",
+                    Password = "AQAAAAIAAYagAAAAEIhIEiaV+MDS+ZozwMNoCYR4yIO3pexSldH4o2hvHFLAsfsZZr7Xh4Tzau+JJ04dOw==",
                 }
             );
         }

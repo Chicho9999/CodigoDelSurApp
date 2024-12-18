@@ -1,4 +1,4 @@
-﻿using CodigoDelSurApp.Persistence.Entities;
+﻿using CodigoDelSurApp.Domain.Entities;
 
 namespace CodigoDelSurApp.Persistence.Repositories.Interface
 {

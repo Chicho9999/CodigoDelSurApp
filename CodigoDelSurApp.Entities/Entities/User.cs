@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
+using CodigoDelSurApp.Domain.Common;
 
-namespace CodigoDelSurApp.Persistence.Entities
+namespace CodigoDelSurApp.Domain.Entities
 {
     public class User : BaseEntity
     {

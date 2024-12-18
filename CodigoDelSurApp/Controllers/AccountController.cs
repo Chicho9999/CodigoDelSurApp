@@ -1,10 +1,9 @@
 using CodigoDelSurApp.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 using CodigoDelSurApp.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Helpers;
-using CodigoDelSurApp.Persistence.Entities;
+using CodigoDelSurApp.Domain.Entities;
 
 namespace CodigoDelSurApp.Controllers
 {

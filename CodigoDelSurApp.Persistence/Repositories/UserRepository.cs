@@ -1,4 +1,4 @@
-﻿using CodigoDelSurApp.Persistence.Entities;
+﻿using CodigoDelSurApp.Domain.Entities;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

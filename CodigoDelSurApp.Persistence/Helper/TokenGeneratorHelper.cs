@@ -1,4 +1,4 @@
-﻿using CodigoDelSurApp.Persistence.Entities;
+﻿using CodigoDelSurApp.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
