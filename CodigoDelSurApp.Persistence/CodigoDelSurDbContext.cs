@@ -30,7 +30,7 @@ namespace CodigoDelSurApp.Persistence
                     Email = "Adming@hotmail.com",
                     LastName = "",
                     Username = "Admin",
-                    Password = "AQAAAAIAAYagAAAAEIhIEiaV+MDS+ZozwMNoCYR4yIO3pexSldH4o2hvHFLAsfsZZr7Xh4Tzau+JJ04dOw==",
+                    Password = "??$?<??{j??\u007f]??\u0001?vlH\\?]?????s3]o",
                 }
             );
 

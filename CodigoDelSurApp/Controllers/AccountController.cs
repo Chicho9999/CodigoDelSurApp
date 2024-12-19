@@ -39,7 +39,7 @@ namespace CodigoDelSurApp.Controllers
         /// <returns>If the operation was succesful</returns>
         /// <respose code="200">The User was registered succesfully</respose>
         /// <respose code="500">Error Ocurred while creating new user </respose>
-        [HttpPost(Name = "Register")]
+        [HttpPost("Register")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Register(UserDto userDto)
