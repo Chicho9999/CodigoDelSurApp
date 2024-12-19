@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CodigoDelSurApp.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class AddUserTable : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,6 +19,7 @@ namespace CodigoDelSurApp.Persistence.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -28,8 +29,8 @@ namespace CodigoDelSurApp.Persistence.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "FirstName", "LastName", "Password", "Username" },
-                values: new object[] { new Guid("87ede418-e06b-4845-b8d1-0682a57f05f3"), "Admin", "", "Admin", "Admin" });
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "Password", "Username" },
+                values: new object[] { new Guid("87ede418-e06b-4845-b8d1-0682a57f05f3"), "Adming@hotmail.com", "Admin", "", "AQAAAAIAAYagAAAAEIhIEiaV+MDS+ZozwMNoCYR4yIO3pexSldH4o2hvHFLAsfsZZr7Xh4Tzau+JJ04dOw==", "Admin" });
         }
 
         /// <inheritdoc />

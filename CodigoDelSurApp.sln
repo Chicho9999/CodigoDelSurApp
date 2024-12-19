@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodigoDelSurApp.Persistence
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{C23347C4-5EBF-4804-835F-CCDAE732DA3F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{6A38B60E-9C0F-4292-8111-93509CEA4381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodigoDelSur.Test", "CodigoDelSur.Test\CodigoDelSur.Test.csproj", "{2AB13F97-D8B4-4130-92E6-7929007B9809}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{632BA52A-A41A-443F-A25F-A277E489D2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632BA52A-A41A-443F-A25F-A277E489D2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632BA52A-A41A-443F-A25F-A277E489D2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB13F97-D8B4-4130-92E6-7929007B9809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB13F97-D8B4-4130-92E6-7929007B9809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB13F97-D8B4-4130-92E6-7929007B9809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB13F97-D8B4-4130-92E6-7929007B9809}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{90F80377-C170-44D4-A74F-A69ADD0CD664} = {61DC5B3E-A9BA-4AEF-941D-6BC0311A7156}
 		{55AFB722-8FE7-43AB-A553-3A365CC8EF5E} = {61DC5B3E-A9BA-4AEF-941D-6BC0311A7156}
 		{632BA52A-A41A-443F-A25F-A277E489D2DB} = {246DEAEE-0160-44CB-AFC1-1832AC37AF02}
+		{2AB13F97-D8B4-4130-92E6-7929007B9809} = {6A38B60E-9C0F-4292-8111-93509CEA4381}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {823711DC-A8A4-4D48-AB3A-F7633B687CCB}

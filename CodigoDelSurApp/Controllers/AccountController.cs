@@ -24,10 +24,27 @@ namespace CodigoDelSurApp.Controllers
         /// <summary>
         /// Register User in the System
         /// </summary>
-        /// <returns></returns>
+        /// <remarks>
+        /// Sample Request:
+        ///     
+        ///     POST api/Register 
+        ///     {
+        ///         "firstName": "Example",
+        ///         "lastName": "Example",
+        ///         "email":"Example@gmail.com",
+        ///         "userName":"Example",
+        ///         "password":"Example"
+        ///     }
+        /// </remarks>
+        /// <returns>If the operation was succesful</returns>
+        /// <respose code="200">The User was registered succesfully</respose>
+        /// <respose code="500">Error Ocurred while creating new user </respose>
         [HttpPost(Name = "Register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Register(UserDto userDto)
         {
+            // Se puede usar Mapping
             var user = new User() { 
                 FirstName = userDto.FirstName, 
                 LastName = userDto.LastName, 
@@ -36,14 +53,22 @@ namespace CodigoDelSurApp.Controllers
                 Password = userDto.Password,
             };
 
-            var userCreated = await _userService.CreateUserAsync(user);
-
-            if (userCreated.Id != Guid.Empty)
+            try
             {
-                return Ok(new { isSuccess = true });
-            }
+                var userCreated = await _userService.CreateUserAsync(user);
 
-            return Ok(new { isSuccess = false });
+                if (userCreated.Id != Guid.Empty)
+                {
+                    return Ok(new { isSuccess = true });
+                }
+
+                return Ok(new { isSuccess = false, Description = "Usuario ya existe" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+                throw;
+            }
 
         }
 
@@ -51,8 +76,12 @@ namespace CodigoDelSurApp.Controllers
         /// Login User
         /// </summary>
         /// <param name="model"></param>
-        /// <returns></returns>
+        /// <returns>If the User was logged or not</returns>
+        /// <respose code="200">The User was logged succesfully</respose>
+        /// <respose code="401">The User can't logged</respose>
         [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             var loggedUSer = await _userService.GetLoggedUserAsync(model.Username, model.Password);
@@ -65,7 +94,7 @@ namespace CodigoDelSurApp.Controllers
                 });
             }
 
-            return Unauthorized();
+            return Unauthorized( new { Response = "Check your credentials" });
         }
     }
 }

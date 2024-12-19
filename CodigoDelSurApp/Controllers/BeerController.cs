@@ -1,4 +1,5 @@
 ﻿using CodigoDelSurApp.Application.Interfaces;
+using CodigoDelSurApp.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodigoDelSurApp.Controllers
@@ -15,13 +16,28 @@ namespace CodigoDelSurApp.Controllers
              _beerService = beerService;
         }
 
-
+        /// <summary>
+        /// Get All Beers that Matches with the respective name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>List of Beers</returns>
+        /// <respose code="200">The Beers was retrieved </respose>
+        /// <respose code="500">Error Ocurred retrieving the information </respose>
         [HttpGet]
         [Route("Name")]
-        public async Task<ActionResult> GetBeersByName(string name)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<Beer>>> GetBeersByName(string name)
         {
-            var chars = await _beerService.GetBeersNameAsync(name);
-            return Ok(new { Beers = chars });
+            try
+            {
+                var beers = await _beerService.GetBeersNameAsync(name);
+                return Ok(beers);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

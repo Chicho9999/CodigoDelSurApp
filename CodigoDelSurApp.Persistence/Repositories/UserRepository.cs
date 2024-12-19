@@ -24,6 +24,11 @@ namespace CodigoDelSurApp.Persistence.Repositories
 
         public async Task<User> CreateUserAsync(User user)
         {
+            var existUser = await _dbContext.Users.FirstOrDefaultAsync(x => x.Username == user.Username);
+            if (existUser != null) {
+                return user;
+            }
+
             var passwordHasher = new PasswordHasher<User>();
             user.Password = passwordHasher.HashPassword(user, user.Password);
 

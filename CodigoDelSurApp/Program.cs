@@ -8,16 +8,32 @@ using CodigoDelSurApp.Persistence;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
 using CodigoDelSurApp.Persistence.Repositories;
 using Helpers;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c => 
+{
+    c.SwaggerDoc("v1", new OpenApiInfo 
+    { 
+        Title = "My API", 
+        Version = "v1",
+        Description = "An API to perform User Register, Login and get information from beers and the Harry Potter Movies"
+    });
 
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var cmlPatch = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(cmlPatch);
+});
+
+//Sql Connection
 builder.Services.AddDbContext<CodigoDelSurDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Dependency Injection
 builder.Services.AddSingleton<TokenGeneratorHelper>();
 builder.Services.AddScoped<IBeerRepository, BeerRepository>();
 builder.Services.AddScoped<IBeerService, BeerService>();
@@ -50,11 +66,13 @@ builder.Services.AddAuthentication(config =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAPI V1");
+    });
 }
 
 app.UseHttpsRedirection();

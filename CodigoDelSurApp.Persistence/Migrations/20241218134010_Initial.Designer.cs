@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodigoDelSurApp.Persistence.Migrations
 {
     [DbContext(typeof(CodigoDelSurDbContext))]
-    [Migration("20241218071510_AddEmail")]
-    partial class AddEmail
+    [Migration("20241218134010_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace CodigoDelSurApp.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CodigoDelSurApp.Persistence.Entities.User", b =>
+            modelBuilder.Entity("CodigoDelSurApp.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,7 +60,7 @@ namespace CodigoDelSurApp.Persistence.Migrations
                             Email = "Adming@hotmail.com",
                             FirstName = "Admin",
                             LastName = "",
-                            Password = "Admin",
+                            Password = "AQAAAAIAAYagAAAAEIhIEiaV+MDS+ZozwMNoCYR4yIO3pexSldH4o2hvHFLAsfsZZr7Xh4Tzau+JJ04dOw==",
                             Username = "Admin"
                         });
                 });

@@ -22,7 +22,7 @@ namespace CodigoDelSurApp.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CodigoDelSurApp.Persistence.Entities.User", b =>
+            modelBuilder.Entity("CodigoDelSurApp.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace CodigoDelSurApp.Persistence.Migrations
                             Email = "Adming@hotmail.com",
                             FirstName = "Admin",
                             LastName = "",
-                            Password = "Admin",
+                            Password = "AQAAAAIAAYagAAAAEIhIEiaV+MDS+ZozwMNoCYR4yIO3pexSldH4o2hvHFLAsfsZZr7Xh4Tzau+JJ04dOw==",
                             Username = "Admin"
                         });
                 });
