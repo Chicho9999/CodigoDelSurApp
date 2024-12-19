@@ -39,7 +39,7 @@ namespace CodigoDelSurApp.Persistence
                 {
                     UserId = userId,
                     PreferenceKey = "Abv",
-                    PreferenceValue = "High"
+                    PreferenceValue = "Desc"
                 }
             );
         }

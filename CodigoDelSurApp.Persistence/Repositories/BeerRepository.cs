@@ -34,7 +34,7 @@ namespace CodigoDelSurApp.Persistence.Repositories
             foreach (var userPreference in userPreferences) {
                 if (QueryHelper.PropertyExists(characters, userPreference.PreferenceKey))
                 {
-                    var characterOrdered = userPreference.PreferenceValue == "desc" ? 
+                    var characterOrdered = userPreference.PreferenceValue == "Desc" ? 
                         QueryHelper.OrderByPropertyDescending(characters, userPreference.PreferenceKey) : 
                         QueryHelper.OrderByProperty(characters, userPreference.PreferenceKey);
 
