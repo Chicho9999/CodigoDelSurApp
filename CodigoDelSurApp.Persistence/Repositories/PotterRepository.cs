@@ -9,7 +9,7 @@ namespace CodigoDelSurApp.Persistence.Repositories
     {
         private const string potterApiUrl = "https://potterapi-fedeperin.vercel.app/en";
 
-        public async Task<List<PotterBook>> GetAllPotterBooksAsync()
+        public async Task<IList<PotterBook>> GetAllPotterBooksAsync()
         {
             var client = new RestClient($"{potterApiUrl}/books");
             var response = await client.ExecuteAsync(new RestRequest());
@@ -25,7 +25,7 @@ namespace CodigoDelSurApp.Persistence.Repositories
             return characters.FirstOrDefault(c => c.FullName.Contains(potterName, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public async Task<List<PotterCharacter>?> GetPotterCharactersByHouseAsync(string house)
+        public async Task<IList<PotterCharacter>?> GetPotterCharactersByHouseAsync(string house)
         {
             List<PotterCharacter> characters = await GetAllHarryPotterCharacters();
 

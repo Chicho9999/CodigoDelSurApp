@@ -13,7 +13,7 @@ namespace CodigoDelSurApp.Application
             _potterRepository = potterRepository;
         }
 
-        public async Task<List<PotterBook>> GetAllBooksAsync()
+        public async Task<IList<PotterBook>> GetAllBooksAsync()
         {
             return await _potterRepository.GetAllPotterBooksAsync();
         }
@@ -23,7 +23,7 @@ namespace CodigoDelSurApp.Application
             return await _potterRepository.GetPotterCharactersByNameAsync(name);
         }
 
-        public async Task<List<PotterCharacter>?> GetPotterCharactersByHouseAsync(string name)
+        public async Task<IList<PotterCharacter>?> GetPotterCharactersByHouseAsync(string name)
         {
             return await _potterRepository.GetPotterCharactersByHouseAsync(name);
         }

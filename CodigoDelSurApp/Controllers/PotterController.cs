@@ -1,12 +1,13 @@
 ﻿using CodigoDelSurApp.Application.Interfaces;
 using CodigoDelSurApp.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodigoDelSurApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class PotterController : ControllerBase
     {
         private readonly IPotterService _potterService;

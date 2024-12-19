@@ -1,4 +1,6 @@
-﻿namespace CodigoDelSurApp.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CodigoDelSurApp.Domain.Entities
 {
     public class Beer 
     {
@@ -8,6 +10,8 @@
         public string? Image { get; set; }
         public double Abv { get; set; }
         public double Ibu { get; set; }
+        [Column("first_brewed")]
+        public double FirstBrewed { get; set; }
     }
 
 }

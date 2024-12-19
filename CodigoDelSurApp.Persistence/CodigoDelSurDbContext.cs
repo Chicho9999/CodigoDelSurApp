@@ -14,6 +14,7 @@ namespace CodigoDelSurApp.Persistence
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<UserPreference> UserPreferences { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +31,15 @@ namespace CodigoDelSurApp.Persistence
                     LastName = "",
                     Username = "Admin",
                     Password = "AQAAAAIAAYagAAAAEIhIEiaV+MDS+ZozwMNoCYR4yIO3pexSldH4o2hvHFLAsfsZZr7Xh4Tzau+JJ04dOw==",
+                }
+            );
+
+            modelBuilder.Entity<UserPreference>().HasData(
+                new UserPreference
+                {
+                    UserId = userId,
+                    PreferenceKey = "Abv",
+                    PreferenceValue = "High"
                 }
             );
         }

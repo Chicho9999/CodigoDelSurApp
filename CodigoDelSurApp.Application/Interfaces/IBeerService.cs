@@ -4,6 +4,6 @@ namespace CodigoDelSurApp.Application.Interfaces
 {
     public interface IBeerService
     {
-        Task<List<Beer>> GetBeersNameAsync(string name);
+        Task<IList<Beer>> GetBeersByNameAsync(string name);
     }
 }

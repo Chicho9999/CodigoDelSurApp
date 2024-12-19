@@ -1,12 +1,13 @@
 ﻿using CodigoDelSurApp.Application.Interfaces;
 using CodigoDelSurApp.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodigoDelSurApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class BeerController : ControllerBase
     {
         private readonly IBeerService _beerService;
@@ -27,11 +28,11 @@ namespace CodigoDelSurApp.Controllers
         [Route("Name")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<Beer>>> GetBeersByName(string name)
+        public async Task<ActionResult<IList<Beer>>> GetBeersByNameAsync(string name)
         {
             try
             {
-                var beers = await _beerService.GetBeersNameAsync(name);
+                var beers = await _beerService.GetBeersByNameAsync(name);
                 return Ok(beers);
             }
             catch (Exception ex)

@@ -4,8 +4,8 @@ namespace CodigoDelSurApp.Persistence.Repositories.Interface
 {
     public interface IPotterRepository
     {
-        Task<List<PotterBook>> GetAllPotterBooksAsync();
+        Task<IList<PotterBook>> GetAllPotterBooksAsync();
         Task<PotterCharacter?> GetPotterCharactersByNameAsync(string potterName);
-        Task<List<PotterCharacter>?> GetPotterCharactersByHouseAsync(string house);
+        Task<IList<PotterCharacter>?> GetPotterCharactersByHouseAsync(string house);
     }
 }

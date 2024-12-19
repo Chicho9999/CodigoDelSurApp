@@ -4,6 +4,6 @@ namespace CodigoDelSurApp.Persistence.Repositories.Interface
 {
     public interface IBeerRepository
     {
-        Task<List<Beer>> GetBeersByNameAsync(string name);
+        Task<IList<Beer>> GetBeersByNameAsync(string name);
     }
 }

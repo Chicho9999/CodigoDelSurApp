@@ -1,5 +1,6 @@
 ﻿using CodigoDelSurApp.Domain.Entities;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
+using Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,8 +17,9 @@ namespace CodigoDelSurApp.Persistence.Repositories
 
         public async Task<User?> GetUserByUserNameAndPasswordAsync(string username, string password)
         {
-            var passwordHasher = new PasswordHasher<User>();
-            var hashedPassword = passwordHasher.HashPassword(null, password);
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = System.Security.Cryptography.SHA256.HashData(data);
+            String hashedPassword = System.Text.Encoding.ASCII.GetString(data);
 
             return await _dbContext.Users.FirstOrDefaultAsync(x => x.Username == username && x.Password == hashedPassword);
         }
@@ -29,8 +31,9 @@ namespace CodigoDelSurApp.Persistence.Repositories
                 return user;
             }
 
-            var passwordHasher = new PasswordHasher<User>();
-            user.Password = passwordHasher.HashPassword(user, user.Password);
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(user.Password);
+            data = System.Security.Cryptography.SHA256.HashData(data);
+            user.Password = System.Text.Encoding.ASCII.GetString(data);
 
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();

@@ -13,7 +13,7 @@ namespace CodigoDelSurApp.Application
             _beerRepository = beerRepository;
         }
 
-        public async Task<List<Beer>> GetBeersNameAsync(string name)
+        public async Task<IList<Beer>> GetBeersByNameAsync(string name)
         {
             return await _beerRepository.GetBeersByNameAsync(name);
         }
