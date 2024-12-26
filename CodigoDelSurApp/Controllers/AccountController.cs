@@ -49,9 +49,10 @@ namespace CodigoDelSurApp.Controllers
                 FirstName = userDto.FirstName, 
                 LastName = userDto.LastName, 
                 Email = userDto.Email,
-                Username = userDto.Username,
-                Password = userDto.Password,
+                Username = userDto.Username
             };
+
+            user.SetPassword(userDto.Password);
 
             try
             {

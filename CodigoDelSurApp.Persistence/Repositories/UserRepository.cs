@@ -17,11 +17,16 @@ namespace CodigoDelSurApp.Persistence.Repositories
 
         public async Task<User?> GetUserByUserNameAndPasswordAsync(string username, string password)
         {
-            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
-            data = System.Security.Cryptography.SHA256.HashData(data);
-            String hashedPassword = System.Text.Encoding.ASCII.GetString(data);
 
-            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Username == username && x.Password == hashedPassword);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.Username == username);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                return user.VerifyPassword(password) ? user : null;
+            }
         }
 
         public async Task<User> CreateUserAsync(User user)
@@ -30,10 +35,6 @@ namespace CodigoDelSurApp.Persistence.Repositories
             if (existUser != null) {
                 return user;
             }
-
-            byte[] data = System.Text.Encoding.ASCII.GetBytes(user.Password);
-            data = System.Security.Cryptography.SHA256.HashData(data);
-            user.Password = System.Text.Encoding.ASCII.GetString(data);
 
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
