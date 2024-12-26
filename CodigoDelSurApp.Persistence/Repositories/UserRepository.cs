@@ -1,7 +1,5 @@
 ﻿using CodigoDelSurApp.Domain.Entities;
 using CodigoDelSurApp.Persistence.Repositories.Interface;
-using Helpers;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodigoDelSurApp.Persistence.Repositories

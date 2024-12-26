@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.Json.Serialization;
 using CodigoDelSurApp.Domain.Common;
 
 namespace CodigoDelSurApp.Domain.Entities
